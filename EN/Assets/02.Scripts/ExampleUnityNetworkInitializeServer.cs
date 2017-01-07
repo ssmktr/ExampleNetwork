@@ -33,7 +33,7 @@ public class ExampleUnityNetworkInitializeServer : MonoBehaviour {
         if (GUI.Button(new Rect(110, 350, 150, 50), "Connect"))
         {
             int portNum = 2305;
-            if (!int.TryParse(port, out portNum))
+            if (!int.TryParse(port, out portNum))   
             {
                 NetworkStateLbl.text = "Given port is not a number";
             }
