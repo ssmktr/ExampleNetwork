@@ -31,7 +31,9 @@ public class PlayerMove : NetworkBehaviour {
     [Command]
     void CmdFire()
     {
-        var Bullet = (GameObject)Instantiate(BulletPrefab, transform.position - transform.forward, Quaternion.identity);
+        GameObject Bullet = (GameObject)Instantiate(BulletPrefab);
+        Bullet.transform.position = new Vector3((transform.position - transform.forward).x, (transform.position - transform.forward).y, (transform.position - transform.forward).z - 1f);
+        Bullet.transform.rotation = Quaternion.identity;
         Bullet.GetComponent<Rigidbody>().velocity = -transform.forward * 4;
 
         NetworkServer.Spawn(Bullet);
